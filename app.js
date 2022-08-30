@@ -15,6 +15,9 @@ fetch(`${giphyURL}?api_key=${APIKEY}&s=${searchWord.value}&weirdness=10`)
 .then((body) => {
     imageContainer.src = body.data.images.original.url;
 })
-.catch((err) => console.error(err));
+.catch((err) => {
+    console.error(err);
+    feedbackParagraph.textContent = err.message;
+});
 });
 
